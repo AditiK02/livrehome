@@ -78,7 +78,7 @@
           $error[] = 'password : max length 20 allowed';
         }
 
-        $sql = "select * from users where (username ='$username ' or email='$email ');";
+        $sql = " select * from users where (username ='$username' or email='$email')";
         $res = mysqli_query($dbc, $sql);
         if(mysqli_num_rows($res)>0)
         {
@@ -90,6 +90,21 @@
           if($email==$row['email'])
           {
             $error[] ='email already exists';
+          }
+        }
+        if(!isset($error))
+        {
+          $date = date('Y-m-d');
+          $options = array("cost" => 4);
+          $password = password_hash($password, PASSWORD_BCRYPT, $options);
+          $result = mysqli_query($dbc, "INSERT into users values('','$fname','$lname'
+          ,'$username','$email','$password','$date')");
+
+          if($result){
+            $done = 2;
+          }
+          else{
+            $error[] = 'failed : somthing went wrong';
           }
         }
       }
@@ -108,7 +123,11 @@
       </div>
       <div class="col-sm-4">
 
-
+          <?php if(isset($done))
+          { ?>
+          <div class="successmsg"><span style="font-size: 100px;">&#9989;</span> 
+          <br>you have registered successfully .<br> <a href="login.php" style="color:#fff;">login here ...</a></div>
+          <?php } else { ?>
         <div class="signup_form">
 
           <form action="" method="POST">
@@ -116,28 +135,28 @@
               <label class="label_txt">First Name</label>
               <input type="text" class="form-control" name="fname" value="<?php
               if (isset($error)) 
-              {echo $fname;} ?>" required="">
+              {echo '$fname';} ?>" required="">
             </div>
 
             <div class="form-group">
               <label class="label_txt">Last Name</label>
               <input type="text" class="form-control" name="lname" value="<?php
               if (isset($error)) 
-              {echo $lname;} ?>" required="">
+              {echo '$lname';} ?>" required="">
             </div>
 
             <div class="form-group">
               <label class="label_txt">Username</label>
               <input type="text" class="form-control" name="username" value="<?php
               if (isset($error)) 
-              {echo $username;} ?>" required="">
+              {echo '$username';} ?>" required="">
             </div>
 
             <div class="form-group">
               <label class="label_txt">Email</label>
               <input type="email" class="form-control" name="email" value="<?php
               if (isset($error)) 
-              {echo $email;} ?>" required>
+              {echo ' $email';} ?>" required>
             </div>
 
             <div class="form-group">
@@ -156,6 +175,8 @@
 
             </br>
             <p> have an account ? <a href="login.php">login</a></p>
+
+            <?php } ?>
           </form>
 
 

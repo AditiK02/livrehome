@@ -7,7 +7,7 @@
   <title>login page</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="prifilelog.css">
-  
+
 </head>
 
 <body>
@@ -20,28 +20,37 @@
 
 
         <div class="login_form">
-          
-          <form>
+          <?php
+          if (isset($_GET['loginerror'])) {
+            $loginerror = $_GET['loginerror'];
+          }
+          if (!empty($loginerror)) {
+            echo '<p class="errmsg">Invalid login, Try Again You stupid..</p>';
+          } ?>
+
+
+          <form action="login_process.php" method="POST">
             <div class="form-group">
 
               <label class="label_txt">Email Address or Username</label>
-              <input type="email" class="form-control">
+              <input type="text" name="login_var" value ="<?php if (!empty($loginerror)) 
+               {echo $loginerror;}?>" class="form-control">
             </div>
 
             <div class="form-group">
 
               <label class="label_txt">Password</label>
 
-              <input type="password" class="form-control" >
+              <input type="password" name="password" class="form-control">
             </div>
-             </br>
-            <button type="submit" class="btn btn-primary form_btn">Login</button>
+            </br>
+            <button type="submit" name="sublogin" class="btn btn-primary form_btn">Login</button>
 
-           
+
 
           </form>
           <br>
-          <p> Don't have an account ? <a href ="signup.php">Sign up </a></p>
+          <p> Don't have an account ? <a href="signup.php">Sign up </a></p>
         </div>
       </div>
       <div class="col-sm-4"></div>
