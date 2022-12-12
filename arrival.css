@@ -86,7 +86,9 @@ section nav .social_icon i:hover{
 
 .arrivals .arrivals_box .arrivals_card{
     width: 250px;
-    height: 30px;
+
+    height: 340px;
+
     text-align: center;
     padding: 5px;
     border: 1px solid #919191;
