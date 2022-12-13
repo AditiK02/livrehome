@@ -1,2 +1,2 @@
-http://localhost/livrehome-main/
+http://localhost/livrehome/livrehome/
 
