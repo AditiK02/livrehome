@@ -20,13 +20,55 @@ if ($res = mysqli_fetch_array($findresult)) {
     <title>My account - Livrehome</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="prifilelog.css">
 
 </head>
 
 <body>
-    <div class="container">
+
+<div class="container">
+<section>
+    <nav>
+  
+      <div class="logo">
+        <img src="image/logo.png">
+     </div>
+      <ul>
+          <li><a href="proj.html">Home</a></li>
+          <li><a href="About.html">About</a></li>
+          
+          <li><a href="Arrivals.html">Arrivals</a></li>
+          <li><a href="Reviews.html">Reviews</a></li>
+          <li><a href="Blog.html">Blogs</a></li>
+          <li><a href="account.php">Profile</a></li>
+      </ul>
+  
+      <div class="social_icon">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <i class="fa-solid fa-heart"></i>
+      </div>
+  
+   </nav>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
